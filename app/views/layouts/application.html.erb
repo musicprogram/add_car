@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AddCar</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  
+  <% if user_signed_in? %>
+      <%= link_to "sign_out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%else%>    
+      <%= link_to "sign_in", new_user_session_path %>
+      <%= link_to "sign_up", new_user_registration_path %>
+  <%end%>  
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+       
+       
+       <br>
+
+        <%= link_to "Home", root_path%>
+        <%= link_to "About", page_about_path%>
+        <%= link_to "FaQs", page_faqs_path%>
+        <%= link_to "Contact", page_contact_path%>
+
+<%= yield %>
+
+</body>
+</html>
